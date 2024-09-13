@@ -31,7 +31,7 @@ export default {
         async fetchMoviePoster() {
             try {
                 const response = await fetch(
-                    `http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&title=${encodeURIComponent(this.movie.movieNm)}&ServiceKey=525X4C9X8C60JJCMS57Q`
+                    `https://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&title=${encodeURIComponent(this.movie.movieNm)}&ServiceKey=525X4C9X8C60JJCMS57Q`
                 );
                 if (!response.ok) throw new Error('포스터 이미지를 가져오는 데 실패했습니다.');
 
