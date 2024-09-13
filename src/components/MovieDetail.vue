@@ -38,7 +38,7 @@ export default {
         async fetchMovieDetail() {
             const movieId = this.$route.params.movieCd; // 경로에서 영화 ID 가져오기
             try {
-                const response = await fetch(`http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json?key=6e9428bca580dfc07301a04058fb46dd&movieCd=${movieId}`);
+                const response = await fetch(`https://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json?key=6e9428bca580dfc07301a04058fb46dd&movieCd=${movieId}`);
                 if (!response.ok) throw new Error('영화 상세 정보를 가져오는 데 실패했습니다.');
                 const data = await response.json();
                 this.movieDetail = data.movieInfoResult.movieInfo;
@@ -51,7 +51,7 @@ export default {
         },
         async fetchMoviePoster(movieName) {
             try {
-                const response = await fetch(`http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&title=${movieName}&ServiceKey=525X4C9X8C60JJCMS57Q`);
+                const response = await fetch(`https://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&title=${movieName}&ServiceKey=525X4C9X8C60JJCMS57Q`);
                 const data = await response.json();
                 const result = data.Data[0]?.Result[0];
 
