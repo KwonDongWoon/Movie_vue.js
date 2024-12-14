@@ -13,6 +13,9 @@
 <script>
 import '../assets/movieCard.css'; //css 가져오기
 
+// cli 는 process.env. 으로 접근이 가능
+const API_KEY1 = process.env.VUE_APP_API_KEY1
+
 export default {
     props: {
         movie: Object, // 부모로부터 전달받은 영화 객체
@@ -31,7 +34,7 @@ export default {
         async fetchMoviePoster() {
             try {
                 const response = await fetch(
-                    `https://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&title=${encodeURIComponent(this.movie.movieNm)}&ServiceKey=525X4C9X8C60JJCMS57Q`
+                    `https://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&title=${encodeURIComponent(this.movie.movieNm)}&ServiceKey=${API_KEY1}`
                 );
                 if (!response.ok) throw new Error('포스터 이미지를 가져오는 데 실패했습니다.');
 

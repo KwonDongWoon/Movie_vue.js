@@ -19,6 +19,9 @@
 import MovieCard from '../components/MovieCard.vue';
 import '../assets/movieList.css'; //css 가져오기
 
+
+const API_KEY2 = process.env.VUE_APP_API_KEY2;
+
 export default {
     components: { MovieCard },
     data() {
@@ -35,7 +38,7 @@ export default {
             }
 
             try {
-                const response = await fetch(`https://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key=6e9428bca580dfc07301a04058fb46dd&movieNm=${this.searchTerm}`);
+                const response = await fetch(`https://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key=${API_KEY2}&movieNm=${this.searchTerm}`);
                 if (!response.ok) throw new Error('네트워크 응답이 실패했습니다.');
                 const data = await response.json();
                 this.movies = data.movieListResult?.movieList || [];
